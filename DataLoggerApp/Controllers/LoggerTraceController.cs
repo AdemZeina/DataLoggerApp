@@ -13,8 +13,8 @@ namespace DataLoggerApp.Controllers
     {
        
 
-        private readonly ILoggerService loggerService;
-        private readonly ITraceService  traceService;
+        private readonly ILoggerService _loggerService;
+        private readonly ITraceService  _traceService;
         [HttpGet]
         [Route("LoggerTrace")]
         [Route("[controller]")]
@@ -25,8 +25,8 @@ namespace DataLoggerApp.Controllers
        
         public LoggerTraceController(ILoggerService loggerService, ITraceService traceService)
         {
-            this.loggerService = loggerService;
-            this.traceService = traceService;
+            this._loggerService = loggerService;
+            this._traceService = traceService;
         }
 
         [HttpPost]
@@ -36,7 +36,7 @@ namespace DataLoggerApp.Controllers
         {
             request.TotalCount = request.Data.Count();
 
-            loggerService.CreateFilesByDataType(request);
+            _loggerService.CreateFilesByDataType(request);
             
 
             return Ok(request);
@@ -47,7 +47,7 @@ namespace DataLoggerApp.Controllers
         [Route("api/[controller]/DataLoggerTrace")]
         public ActionResult<object> DataLoggerTrace()
         {
-            traceService.CreateOrUpdateLoggerTraceInDirectory();
+            _traceService.CreateOrUpdateLoggerTraceInDirectory();
             return Ok("Completed Successfully");
         }
 
