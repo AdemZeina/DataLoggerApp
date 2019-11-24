@@ -30,15 +30,7 @@ namespace DataLoggerApp.Services
 
                     string directoryTracePath = Path.Combine(directoryPath, dataTypeFileName + "-Trace");
                     string traceFileNamePath = Path.Combine(directoryTracePath, traceFileName);
-                    //if (!Directory.Exists(directoryTracePath))
-                    //{
-                    //    DirectoryInfo di = Directory.CreateDirectory(directoryTracePath);
-                    //}
-                    //if (!System.IO.File.Exists(traceFileNamePath))
-                    //{
-                    //    TraceHelper.CreateTraceFile(dataList, traceFileNamePath, file.Name,traceFileName);
-                    //}
-
+                 
                     string traceString = "";
                     if (System.IO.File.Exists(traceFileNamePath))
                     {

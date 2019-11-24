@@ -44,14 +44,6 @@ namespace DataLoggerApp.FileHelpers
             FileHelper.WriteTextFile(traceFileNamePath, JsonConvert.SerializeObject(model), false);
         }
 
-        private static FileTraceModel ReadTraceFile(string traceFileNamePath)
-        {
-
-            string fileString = System.IO.File.ReadAllText(traceFileNamePath);
-            return JsonConvert.DeserializeObject<FileTraceModel>(fileString);
-
-        }
-
 
         public static void CreateTraceFile(DatasList dataList, string traceFileNamePath, string logFileName, string traceFileName)
         {
@@ -76,7 +68,6 @@ namespace DataLoggerApp.FileHelpers
         }
 
 
-
         public static string TraceNameCreator(string fileName,string dataTypeFileName, string directoryPath)
         {
             string traceFileName = "Trace";
@@ -88,6 +79,14 @@ namespace DataLoggerApp.FileHelpers
             }
 
             return traceFileName;
+        }
+
+        private static FileTraceModel ReadTraceFile(string traceFileNamePath)
+        {
+
+            string fileString = System.IO.File.ReadAllText(traceFileNamePath);
+            return JsonConvert.DeserializeObject<FileTraceModel>(fileString);
+
         }
     }
 }

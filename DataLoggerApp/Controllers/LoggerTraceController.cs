@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DataLoggerApp.Controllers
 {
     [Route("api/[controller]")]
-    [Route("LoggerTrace")]
+   
     [Route("[controller]")]
     [ApiController]
     public class LoggerTraceController : ControllerBase
@@ -15,9 +15,11 @@ namespace DataLoggerApp.Controllers
 
         private readonly ILoggerService _loggerService;
         private readonly ITraceService  _traceService;
-        [HttpGet]
+        
+        
+        
+            [HttpGet]
         [Route("LoggerTrace")]
-        [Route("[controller]")]
         public ActionResult<string> Get()
         {
             return "Running....";
@@ -48,6 +50,7 @@ namespace DataLoggerApp.Controllers
         public ActionResult<object> DataLoggerTrace()
         {
             _traceService.CreateOrUpdateLoggerTraceInDirectory();
+            
             return Ok("Completed Successfully");
         }
 

@@ -27,7 +27,5 @@ namespace DataLoggerApp.Models
     Empty,
     HavingSize,
     Full
-
-
     }
 }
